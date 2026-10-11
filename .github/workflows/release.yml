@@ -38,28 +38,31 @@ jobs:
       - name: Install Geode CLI (macOS)
         if: matrix.runner == 'macos-latest'
         run: |
-          brew install geode-sdk/geode/geode-cli
+          brew tap geode-sdk/geode
+          brew install geode-cli
           geode sdk install
 
       - name: Install Geode CLI (Windows)
         if: matrix.runner == 'windows-latest'
         run: |
-          winget install GeodeSDK.GeodeCLI
+          winget install GeodeSDK.GeodeCLI --exact
           geode sdk install
         shell: pwsh
 
       - name: Install Geode CLI (Linux)
         if: matrix.runner == 'ubuntu-latest'
         run: |
-          wget -qO- https://github.com/geode-sdk/cli/releases/latest/download/geode-cli_linux_x86_64.tar.gz | tar xz
+          mkdir -p /tmp/geode
+          cd /tmp/geode
+          curl -sL https://github.com/geode-sdk/cli/releases/latest/download/geode-cli_linux_x86_64.tar.gz | tar xz
           sudo mv geode /usr/local/bin/
           geode sdk install
 
       - name: Install Android NDK (Linux)
         if: matrix.runner == 'ubuntu-latest'
         run: |
-          wget -q https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
-          unzip -q android-ndk-r25c-linux.zip
+          wget -q https://dl.google.com/android/repository/android-ndk-r25c-linux-x86_64.zip
+          unzip -q android-ndk-r25c-linux-x86_64.zip
           echo "ANDROID_NDK_ROOT=$GITHUB_WORKSPACE/android-ndk-r25c" >> $GITHUB_ENV
 
       - name: Build
