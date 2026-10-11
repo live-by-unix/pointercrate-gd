@@ -26,11 +26,11 @@ bool DemonlistMenu::init() {
     // Create Pointercrate button with label
     auto pointercrateNode = CCNode::create();
     auto pointercrateSprite = CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png");
-    pointercrateSprite->setPosition(CCPoint(0, 10));
+    pointercrateSprite->setPosition(CCPoint(0, 20));
     pointercrateNode->addChild(pointercrateSprite);
     
     auto pointercrateLabel = CCLabelTTF::create("Pointercrate", "Arial", 12);
-    pointercrateLabel->setPosition(CCPoint(0, -10));
+    pointercrateLabel->setPosition(CCPoint(0, -20));
     pointercrateLabel->setColor(ccWHITE);
     pointercrateNode->addChild(pointercrateLabel);
     
@@ -45,11 +45,11 @@ bool DemonlistMenu::init() {
     // Create Pemonlist button with label
     auto pemonlistNode = CCNode::create();
     auto pemonlistSprite = CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png");
-    pemonlistSprite->setPosition(CCPoint(0, 10));
+    pemonlistSprite->setPosition(CCPoint(0, 20));
     pemonlistNode->addChild(pemonlistSprite);
     
     auto pemonlistLabel = CCLabelTTF::create("Pemonlist", "Arial", 12);
-    pemonlistLabel->setPosition(CCPoint(0, -10));
+    pemonlistLabel->setPosition(CCPoint(0, -20));
     pemonlistLabel->setColor(ccWHITE);
     pemonlistNode->addChild(pemonlistLabel);
     
@@ -64,11 +64,11 @@ bool DemonlistMenu::init() {
     // Create AREDL button with label
     auto aredlNode = CCNode::create();
     auto aredlSprite = CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png");
-    aredlSprite->setPosition(CCPoint(0, 10));
+    aredlSprite->setPosition(CCPoint(0, 20));
     aredlNode->addChild(aredlSprite);
     
     auto aredlLabel = CCLabelTTF::create("AREDL", "Arial", 12);
-    aredlLabel->setPosition(CCPoint(0, -10));
+    aredlLabel->setPosition(CCPoint(0, -20));
     aredlLabel->setColor(ccWHITE);
     aredlNode->addChild(aredlLabel);
     
@@ -82,7 +82,7 @@ bool DemonlistMenu::init() {
 
     m_buttonMenu->setLayout(
         RowLayout::create()
-            ->setGap(50.0f)
+            ->setGap(80.0f)
             ->setAutoScale(false)
     );
 
