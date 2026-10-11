@@ -7,10 +7,10 @@
 		"ios": "2.2081"
 	},
 	"id": "livebyunix.pointercrate-gd",
-	"name": "Pointercrate",
-	"version": "1.0.0",
+	"name": "Demonlist Browser",
+	"version": "1.1.0",
 	"developer": "live-by-unix",
-	"description": "Browse the Pointercrate Demonlist directly in-game with an embedded browser",
+	"description": "Quick access to Pointercrate, Pemonlist, and AREDL demonlists directly from the main menu",
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
 	}

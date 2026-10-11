@@ -9,12 +9,20 @@
 
 namespace pointercrate {
 
+enum class DemonlistType {
+    Pointercrate,
+    Pemonlist,
+    AREDL
+};
+
 class PointercrateBrowser {
 public:
     static PointercrateBrowser& get();
 
-    void openBrowser();
+    void openBrowser(DemonlistType type = DemonlistType::Pointercrate);
     void closeBrowser();
+
+    std::string getURL(DemonlistType type) const;
 
 private:
     PointercrateBrowser() = default;

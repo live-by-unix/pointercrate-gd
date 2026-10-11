@@ -17,9 +17,24 @@ PointercrateBrowser& PointercrateBrowser::get() {
     return instance;
 }
 
-void PointercrateBrowser::openBrowser() {
-    const std::string url = "https://pointercrate.com/";
-    log::info("Opening Pointercrate browser: {}", url);
+std::string PointercrateBrowser::getURL(DemonlistType type) const {
+    switch (type) {
+        case DemonlistType::Pointercrate:
+            return "https://pointercrate.com/";
+        case DemonlistType::Pemonlist:
+            return "https://pemonlist.com/";
+        case DemonlistType::AREDL:
+            return "https://aredl.net/";
+        default:
+            return "https://pointercrate.com/";
+    }
+}
+
+void PointercrateBrowser::openBrowser(DemonlistType type) {
+    const std::string url = getURL(type);
+    const std::string name = type == DemonlistType::Pointercrate ? "Pointercrate" :
+                            type == DemonlistType::Pemonlist ? "Pemonlist" : "AREDL";
+    log::info("Opening {} browser: {}", name, url);
     openURL(url);
 }
 

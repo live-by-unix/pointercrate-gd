@@ -1,13 +1,23 @@
-# Pointercrate for Geometry Dash
+# Demonlist Browser for Geometry Dash
 
-Pointercrate adds a Demon icon button to the bottom area of the Geometry Dash main menu. When clicked, it opens an embedded browser that loads the real Pointercrate website (https://pointercrate.com/), allowing you to browse the Demonlist and rankings directly in-game.
+Demonlist Browser adds three buttons to the bottom area of the Geometry Dash main menu for quick access to the most popular demonlists:
+
+- **Pointercrate**: The original Geometry Dash Demonlist
+- **Pemonlist**: The Platformer Demonlist
+- **AREDL**: All Rated Extreme Demons List
+
+When clicked, each button opens the corresponding demonlist website in your default browser, allowing you to browse rankings and records.
 
 ## Features
 
-- **Embedded Browser**: Browse the actual Pointercrate website inside Geometry Dash
-- **Main Menu Integration**: Adds a Demon icon button to the bottom menu
+- **Multiple Demonlists**: Access Pointercrate, Pemonlist, and AREDL
+- **Main Menu Integration**: Adds three icon buttons to the bottom menu
 - **Cross-Platform**: Supports Windows, macOS (Apple Silicon and Intel), and Android
-- **Real Website**: Uses the live Pointercrate website, not a static mockup
+- **Real Websites**: Uses the live demonlist websites, not static mockups
+
+## Future Plans
+
+The mod includes the foundation for embedded browser rendering using CEF (Chromium Embedded Framework). This will allow browsing demonlists directly within the game in a future update.
 
 ## Installation
 

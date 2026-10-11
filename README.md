@@ -1,22 +1,27 @@
-# pointercrate-gd
+# Demonlist Browser for Geometry Dash
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Geode](https://img.shields.io/badge/Geode-5.9.0-blue)](https://geode-sdk.org/)
 
-A Geometry Dash mod that adds a Demon icon button to the main menu for quick access to the Pointercrate Demonlist.
+A Geometry Dash mod that adds three buttons to the main menu for quick access to the most popular demonlists:
+
+- **Pointercrate**: The original Geometry Dash Demonlist
+- **Pemonlist**: The Platformer Demonlist
+- **AREDL**: All Rated Extreme Demons List
 
 ## Features
 
-- **Quick Access**: Adds a Demon icon button to the bottom menu of the main menu
-- **Pointercrate Integration**: Opens the Pointercrate website (https://pointercrate.com/) in your default browser
+- **Multiple Demonlists**: Access Pointercrate, Pemonlist, and AREDL from the main menu
+- **Quick Access**: Three icon buttons in the bottom menu for instant demonlist access
 - **Cross-Platform**: Supports Windows, macOS (Apple Silicon and Intel), and Android
-- **Real Website**: Uses the live Pointercrate website, not a static mockup
+- **Real Websites**: Uses the live demonlist websites, not static mockups
+- **CEF Foundation**: Includes structure for future embedded browser rendering
 
 ## Current Implementation
 
-**Note**: The current implementation opens the Pointercrate website in your system's default browser (Chrome, Safari, Edge, etc.) rather than rendering it embedded within the game. This provides reliable functionality across all platforms while work continues on true embedded browser rendering.
+**Note**: The current implementation opens demonlist websites in your system's default browser (Chrome, Safari, Edge, etc.) rather than rendering them embedded within the game. This provides reliable functionality across all platforms while work continues on true embedded browser rendering.
 
-See [EMBEDDED_BROWSER_IMPLEMENTATION.md](EMBEDDED_BROWSER_IMPLEMENTATION.md) for details on the roadmap for embedded browser rendering.
+See [EMBEDDED_BROWSER_IMPLEMENTATION.md](EMBEDDED_BROWSER_IMPLEMENTATION.md) for details on the roadmap for embedded browser rendering using CEF (Chromium Embedded Framework).
 
 ## Supported Platforms
 
@@ -36,11 +41,11 @@ See [EMBEDDED_BROWSER_IMPLEMENTATION.md](EMBEDDED_BROWSER_IMPLEMENTATION.md) for
 
 ### Available Artifacts
 
-- **macOS ARM64**: `pointercrate-gd-macos-arm64.geode` (Available in v1.0.0)
-- **Windows x86_64**: Build via CI or on Windows (not in v1.0.0)
-- **Android**: Build via CI with Android NDK (not in v1.0.0)
+- **macOS ARM64**: `pointercrate-gd-macos-arm64.geode` (Available in v1.1.0)
+- **Windows x86_64**: Build via CI or on Windows (not in v1.1.0)
+- **Android**: Build via CI with Android NDK (not in v1.1.0)
 
-*Note: v1.0.0 includes only the macOS ARM64 artifact. Other platforms will be added in future releases via CI builds.*
+*Note: v1.1.0 includes only the macOS ARM64 artifact. Other platforms will be added in future releases via CI builds.*
 
 ### Manual Installation
 
