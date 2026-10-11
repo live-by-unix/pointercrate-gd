@@ -7,7 +7,7 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  build-macos:
+  build-macos-arm64:
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -20,21 +20,15 @@ jobs:
 
       - name: Build macOS ARM64
         run: |
-          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
-          cmake --build build --config RelWithDebInfo
-
-      - name: Package macOS
-        run: |
-          cd build
-          geode package new .. --binary livebyunix.pointercrate-gd.dylib --output pointercrate-gd-macos.geode
+          geode build -p macos64
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pointercrate-gd-macos
-          path: build/pointercrate-gd-macos.geode
+          name: pointercrate-gd-macos-arm64
+          path: build-macos64/livebyunix.pointercrate-gd.geode
 
-  build-windows:
+  build-windows-x86_64:
     runs-on: windows-latest
     steps:
       - name: Checkout code
@@ -44,18 +38,20 @@ jobs:
         run: |
           winget install GeodeSDK.GeodeCLI
           geode sdk install
+        shell: pwsh
 
-      - name: Build Windows
+      - name: Build Windows x86_64
         run: |
-          geode build -p windows
+          geode build -p windows64
+        shell: bash
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pointercrate-gd-windows
-          path: build/livebyunix.pointercrate-gd.geode
+          name: pointercrate-gd-windows-x86_64
+          path: build-windows64/livebyunix.pointercrate-gd.geode
 
-  build-android:
+  build-android-arm64:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -82,3 +78,31 @@ jobs:
         with:
           name: pointercrate-gd-android-arm64
           path: build-android64/livebyunix.pointercrate-gd.geode
+
+  build-android-armeabi-v7a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Geode CLI
+        run: |
+          wget -qO- https://github.com/geode-sdk/cli/releases/latest/download/geode-cli_linux_x86_64.tar.gz | tar xz
+          sudo mv geode /usr/local/bin/
+          geode sdk install
+
+      - name: Install Android NDK
+        run: |
+          wget -q https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+          unzip -q android-ndk-r25c-linux.zip
+          echo "ANDROID_NDK_ROOT=$GITHUB_WORKSPACE/android-ndk-r25c" >> $GITHUB_ENV
+
+      - name: Build Android ARMv7
+        run: |
+          geode build -p android32 --ndk $ANDROID_NDK_ROOT
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pointercrate-gd-android-armeabi-v7a
+          path: build-android32/livebyunix.pointercrate-gd.geode
