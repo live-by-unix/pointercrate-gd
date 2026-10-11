@@ -82,7 +82,7 @@ bool DemonlistMenu::init() {
 
     m_buttonMenu->setLayout(
         RowLayout::create()
-            ->setGap(30.0f)
+            ->setGap(50.0f)
             ->setAutoScale(false)
     );
 
