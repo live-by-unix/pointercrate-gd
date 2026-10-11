@@ -34,6 +34,14 @@ See [EMBEDDED_BROWSER_IMPLEMENTATION.md](EMBEDDED_BROWSER_IMPLEMENTATION.md) for
 2. Download the appropriate `.geode` file for your platform from the [Releases](https://github.com/live-by-unix/pointercrate-gd/releases) page
 3. Place the `.geode` file in your Geode mods folder
 
+### Available Artifacts
+
+- **macOS ARM64**: `pointercrate-gd-macos-arm64.geode` (Available in v1.0.0)
+- **Windows x86_64**: Build via CI or on Windows (not in v1.0.0)
+- **Android**: Build via CI with Android NDK (not in v1.0.0)
+
+*Note: v1.0.0 includes only the macOS ARM64 artifact. Other platforms will be added in future releases via CI builds.*
+
 ### Manual Installation
 
 1. Download the `.geode` file for your platform
