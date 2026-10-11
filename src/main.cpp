@@ -1,5 +1,6 @@
 #include <Geode/Geode.hpp>
 #include "PointercrateBrowser.hpp"
+#include "DemonlistMenu.hpp"
 
 using namespace geode::prelude;
 
@@ -11,37 +12,19 @@ class $modify(PointercrateMenuLayer, MenuLayer) {
 			return false;
 		}
 
-		log::debug("Pointercrate mod loaded - adding buttons to main menu");
+		log::debug("Demonlist Browser mod loaded - adding button to main menu");
 
-		// Add buttons to bottom menu
+		// Add single button to bottom menu
 		auto menu = this->getChildByID("bottom-menu");
 		if (menu) {
-			// Pointercrate button
-			auto pointercrateButton = CCMenuItemSpriteExtra::create(
-				CCSprite::createWithSpriteFrameName("GJ_demonBtn_001.png"),
-				this,
-				menu_selector(PointercrateMenuLayer::onPointercrateButton)
-			);
-			pointercrateButton->setID("pointercrate-button"_spr);
-			menu->addChild(pointercrateButton);
-
-			// Pemonlist button
-			auto pemonlistButton = CCMenuItemSpriteExtra::create(
-				CCSprite::createWithSpriteFrameName("GJ_difficultyBtn_001.png"),
-				this,
-				menu_selector(PointercrateMenuLayer::onPemonlistButton)
-			);
-			pemonlistButton->setID("pemonlist-button"_spr);
-			menu->addChild(pemonlistButton);
-
-			// AREDL button
-			auto aredlButton = CCMenuItemSpriteExtra::create(
+			// Demonlist Browser button - use the working star button
+			auto demonlistButton = CCMenuItemSpriteExtra::create(
 				CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png"),
 				this,
-				menu_selector(PointercrateMenuLayer::onAredlButton)
+				menu_selector(PointercrateMenuLayer::onDemonlistButton)
 			);
-			aredlButton->setID("aredl-button"_spr);
-			menu->addChild(aredlButton);
+			demonlistButton->setID("demonlist-button"_spr);
+			menu->addChild(demonlistButton);
 
 			menu->updateLayout();
 		} else {
@@ -51,18 +34,8 @@ class $modify(PointercrateMenuLayer, MenuLayer) {
 		return true;
 	}
 
-	void onPointercrateButton(CCObject*) {
-		log::info("Pointercrate button clicked");
-		pointercrate::PointercrateBrowser::get().openBrowser(pointercrate::DemonlistType::Pointercrate);
-	}
-
-	void onPemonlistButton(CCObject*) {
-		log::info("Pemonlist button clicked");
-		pointercrate::PointercrateBrowser::get().openBrowser(pointercrate::DemonlistType::Pemonlist);
-	}
-
-	void onAredlButton(CCObject*) {
-		log::info("AREDL button clicked");
-		pointercrate::PointercrateBrowser::get().openBrowser(pointercrate::DemonlistType::AREDL);
+	void onDemonlistButton(CCObject*) {
+		log::info("Demonlist Browser button clicked");
+		pointercrate::DemonlistMenu::create()->show();
 	}
 };

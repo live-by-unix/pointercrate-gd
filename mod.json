@@ -8,9 +8,9 @@
 	},
 	"id": "livebyunix.pointercrate-gd",
 	"name": "Demonlist Browser",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"developer": "live-by-unix",
-	"description": "Quick access to Pointercrate, Pemonlist, and AREDL demonlists directly from the main menu",
+	"description": "Quick access to Pointercrate, Pemonlist, and AREDL demonlists with an in-game selection menu",
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
 	}
