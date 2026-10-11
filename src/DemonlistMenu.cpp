@@ -16,34 +16,64 @@ DemonlistMenu* DemonlistMenu::create() {
 }
 
 bool DemonlistMenu::init() {
-    if (!FLAlertLayer::init(nullptr, "Demonlist Browser", "Select a demonlist to browse:", "Cancel", nullptr, 400.0f, false, 0.0f, 1.0f)) {
+    if (!FLAlertLayer::init(nullptr, "Demonlist Browser", "Select a demonlist to browse:", "Cancel", nullptr, 500.0f, false, 0.0f, 1.0f)) {
         return false;
     }
 
     // Remove default button and add custom menu
     m_buttonMenu->removeAllChildren();
 
-    // Create Pointercrate button using game button sprite
+    // Create Pointercrate button with label
+    auto pointercrateNode = CCNode::create();
+    auto pointercrateSprite = CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png");
+    pointercrateSprite->setPosition(CCPoint(0, 10));
+    pointercrateNode->addChild(pointercrateSprite);
+    
+    auto pointercrateLabel = CCLabelTTF::create("Pointercrate", "Arial", 12);
+    pointercrateLabel->setPosition(CCPoint(0, -10));
+    pointercrateLabel->setColor(ccWHITE);
+    pointercrateNode->addChild(pointercrateLabel);
+    
     auto pointercrateBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png"),
+        pointercrateNode,
         this,
         menu_selector(DemonlistMenu::onPointercrate)
     );
     pointercrateBtn->setID("pointercrate-btn"_spr);
     m_buttonMenu->addChild(pointercrateBtn);
 
-    // Create Pemonlist button
+    // Create Pemonlist button with label
+    auto pemonlistNode = CCNode::create();
+    auto pemonlistSprite = CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png");
+    pemonlistSprite->setPosition(CCPoint(0, 10));
+    pemonlistNode->addChild(pemonlistSprite);
+    
+    auto pemonlistLabel = CCLabelTTF::create("Pemonlist", "Arial", 12);
+    pemonlistLabel->setPosition(CCPoint(0, -10));
+    pemonlistLabel->setColor(ccWHITE);
+    pemonlistNode->addChild(pemonlistLabel);
+    
     auto pemonlistBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png"),
+        pemonlistNode,
         this,
         menu_selector(DemonlistMenu::onPemonlist)
     );
     pemonlistBtn->setID("pemonlist-btn"_spr);
     m_buttonMenu->addChild(pemonlistBtn);
 
-    // Create AREDL button
+    // Create AREDL button with label
+    auto aredlNode = CCNode::create();
+    auto aredlSprite = CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png");
+    aredlSprite->setPosition(CCPoint(0, 10));
+    aredlNode->addChild(aredlSprite);
+    
+    auto aredlLabel = CCLabelTTF::create("AREDL", "Arial", 12);
+    aredlLabel->setPosition(CCPoint(0, -10));
+    aredlLabel->setColor(ccWHITE);
+    aredlNode->addChild(aredlLabel);
+    
     auto aredlBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("GJ_starBtn_001.png"),
+        aredlNode,
         this,
         menu_selector(DemonlistMenu::onAredl)
     );
@@ -52,7 +82,7 @@ bool DemonlistMenu::init() {
 
     m_buttonMenu->setLayout(
         RowLayout::create()
-            ->setGap(10.0f)
+            ->setGap(30.0f)
             ->setAutoScale(false)
     );
 

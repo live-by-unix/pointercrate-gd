@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.3.0] - 2026-10-11
+
+### Added
+- Text labels below each button in selection menu
+- Labels show "Pointercrate", "Pemonlist", and "AREDL" below star buttons
+- Improved user clarity when selecting demonlists
+
+### Changed
+- Increased menu width to accommodate labels
+- Adjusted button spacing for better layout
+
 ## [1.2.0] - 2026-10-11
 
 ### Added
